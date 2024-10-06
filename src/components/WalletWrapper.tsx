@@ -38,14 +38,17 @@ export default function WalletWrapper({
           <Name />
         </ConnectWallet>
         <WalletDropdown>
-          <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick={true}>
+
+        <Identity
+           className="px-4 pt-3 pb-2" hasCopyAddressOnClick={true}>
             <Avatar />
             <Name />
             <Address />
             <EthBalance />
           </Identity>
+
           <WalletDropdownBasename />
-          <WalletDropdownLink icon="wallet" href="https://wallet.coinbase.com">
+          <WalletDropdownLink icon="wallet" target='_blank' href="https://wallet.coinbase.com">
             Go to Wallet Dashboard
           </WalletDropdownLink>
           <WalletDropdownFundLink />

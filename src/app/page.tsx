@@ -18,7 +18,7 @@ export default function Page() {
           <a
             href={ONCHAINKIT_LINK}
             title="onchainkit"
-            target="_blank"
+            c
             rel="noreferrer"
           >
             <OnchainkitSvg />
