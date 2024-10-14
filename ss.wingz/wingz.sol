@@ -2,7 +2,7 @@
 pragma solidity ^0.8.26;
 
 
-contract UnburnableToken {
+contract Wingz {
     mapping (address => uint) public balances;
     mapping(address => bool) public hasClaimed;
     uint public totalSupply;
@@ -17,7 +17,6 @@ contract UnburnableToken {
 
     function claim (address) public {
         require(totalClaimed < totalSupply, "AllTokensClaimed");
-        require(!hasClaimed[msg.sender], "TokensClaimed"); 
         balances[msg.sender] += _claimed;
         totalClaimed += _claimed;
         hasClaimed[msg.sender] = true;

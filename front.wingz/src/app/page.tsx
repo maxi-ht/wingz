@@ -3,19 +3,20 @@ import Footer from 'src/components/Footer';
 import TransactionWrapper from 'src/components/TransactionWrapper';
 import WalletWrapper from 'src/components/WalletWrapper';
 import { ONCHAINKIT_LINK } from 'src/links';
-import OnchainkitSvg from 'src/svg/OnchainkitSvg';
 import { useAccount } from 'wagmi';
 import LoginButton from '../components/LoginButton';
 import SignupButton from '../components/SignupButton';
-import Balance from '../components/balance';
+import { Basenames } from '../components/basenames';
 import { useState, useEffect } from 'react'
-import { User } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from 'next/image';
+import BalanceButton from '../components/BalanceButton';
+import React from 'react';
 
 
 export default function Page() {
   const { address } = useAccount();
+  const account = useAccount();
 
   const [isClimbHovered, setIsClimbHovered] = useState(false)
   const [activeStep, setActiveStep] = useState(0)
@@ -66,108 +67,112 @@ export default function Page() {
   </div>
 </a>
 
-
-
           <div className="flex items-center gap-3">
             <SignupButton />
             {!address && <LoginButton />}
+          
+            {/* <h1>{result}</h1> */}
           </div>
         </div>
       </section>
 
       <section className="templateSection flex w-full flex-col items-center justify-center gap-4 rounded-xl bg-gray-100 px-2 py-4 md:grow">
-        
-        <div className="flex flex-col space-y-4 h-[500px] w-[450px] max-w-full items-center justify-center rounded-xl">
-          
-        <div className="w-full bg-blue-600 hover:bg-blue-800 text-white rounded-2xl py-6 p-5 flex justify-between items-center">
-  <div className="text-3xl font-bold">Balance</div>
-  <div className="text-4xl font-bold">1055</div>
-</div>
+
+  
+<div className="flex flex-col space-y-4 h-auto w-[450px] max-w-full items-center justify-center rounded-xl">
+  {/* Balance Button */}
+    <div className="w-full">
+    <BalanceButton />
+    </div>
 
 
-        <div 
-          className="w-full"
-          onMouseEnter={() => setIsClimbHovered(true)}
-          onMouseLeave={() => setIsClimbHovered(false)}
-        >
-          <button 
-            onClick={handleClimb}
-            className="w-full bg-blue-600 hover:bg-blue-800 text-white rounded-2xl py-6 px-5 flex items-center justify-between"
-          >
-            <span className="text-3xl font-bold">CLIMB</span>
-            <svg 
-              width="64" 
-              height="64" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-16"
-            >
-              <AnimatePresence>
-                {!isClimbHovered && (
-                  <motion.g initial="visible" exit="hidden" variants={stairVariants}>
-                    <rect x="0" y="20" width="24" height="4" fill="white"/>
-                    <rect x="6" y="15" width="18" height="3" fill="white"/>
-                    <rect x="12" y="10" width="12" height="3" fill="white"/>
-                    <rect x="18" y="5" width="6" height="3" fill="white"/>
-                  </motion.g>
-                )}
-              </AnimatePresence>
-              {isClimbHovered && (
-                <>
-                  <motion.rect 
-                    x="0" y="20" width="24" height="4" fill="white"
-                    initial="hidden"
-                    animate={activeStep >= 1 ? "visible" : "hidden"}
-                    variants={stairVariants}
-                  />
-                  <motion.rect 
-                    x="6" y="15" width="18" height="3" fill="white"
-                    initial="hidden"
-                    animate={activeStep >= 2 ? "visible" : "hidden"}
-                    variants={stairVariants}
-                  />
-                  <motion.rect 
-                    x="12" y="10" width="12" height="3" fill="white"
-                    initial="hidden"
-                    animate={activeStep >= 3 ? "visible" : "hidden"}
-                    variants={stairVariants}
-                  />
-                  <motion.rect 
-                    x="18" y="5" width="6" height="3" fill="white"
-                    initial="hidden"
-                    animate={activeStep >= 4 ? "visible" : "hidden"}
-                    variants={stairVariants}
-                  />
-                </>
-              )}
-            </svg>
-          </button>
-        </div>
+  {/* Climb Button */}
+   <div 
+    className="w-full"
+    onMouseEnter={() => setIsClimbHovered(true)}
+    onMouseLeave={() => setIsClimbHovered(false)}
+  >
+    <button 
+      onClick={handleClimb}
+      className="w-full bg-blue-600 hover:bg-blue-800 text-white rounded-2xl py-6 px-5 flex items-center justify-between"
+    >
+      <span className="text-3xl font-bold">CLIMB</span>
+      <svg 
+        width="64" 
+        height="64" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-16"
+      >
+        <AnimatePresence>
+          {!isClimbHovered && (
+            <motion.g initial="visible" exit="hidden" variants={stairVariants}>
+              <rect x="0" y="20" width="24" height="4" fill="white"/>
+              <rect x="6" y="15" width="18" height="3" fill="white"/>
+              <rect x="12" y="10" width="12" height="3" fill="white"/>
+              <rect x="18" y="5" width="6" height="3" fill="white"/>
+            </motion.g>
+          )}
+        </AnimatePresence>
+        {isClimbHovered && (
+          <>
+            <motion.rect 
+              x="0" y="20" width="24" height="4" fill="white"
+              initial="hidden"
+              animate={activeStep >= 1 ? "visible" : "hidden"}
+              variants={stairVariants}
+            />
+            <motion.rect 
+              x="6" y="15" width="18" height="3" fill="white"
+              initial="hidden"
+              animate={activeStep >= 2 ? "visible" : "hidden"}
+              variants={stairVariants}
+            />
+            <motion.rect 
+              x="12" y="10" width="12" height="3" fill="white"
+              initial="hidden"
+              animate={activeStep >= 3 ? "visible" : "hidden"}
+              variants={stairVariants}
+            />
+            <motion.rect 
+              x="18" y="5" width="6" height="3" fill="white"
+              initial="hidden"
+              animate={activeStep >= 4 ? "visible" : "hidden"}
+              variants={stairVariants}
+            />
+          </>
+        )}
+      </svg>
+    </button>
+  </div>
 
-        <button 
-          onClick={handleTransfer}
-          className="w-full bg-blue-600 hover:bg-blue-800 text-white rounded-2xl p-5 flex items-center justify-between"
-        >
-        <span className="text-3xl font-bold">TRANSFER</span>
-            <motion.svg 
-              width="64" 
-              height="64" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-16"
-              initial={{ x: 0, rotate: 0 }}
-              whileHover={{ x: 10, rotate: 45 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              <path d="M5 19L19 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M5 5H19V19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </motion.svg>
-          </button>
+  {/* Transfer Button */}
+  <button 
+    onClick={handleTransfer}
+    className="w-full bg-blue-600 hover:bg-blue-800 text-white rounded-2xl py-6 px-5 flex items-center justify-between"
+  >
+    <span className="text-3xl font-bold">TRANSFER</span>
+    <motion.svg 
+      width="64" 
+      height="64" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-16"
+      initial={{ x: 0, rotate: 0 }}
+      whileHover={{ x: 10, rotate: 45 }}
+      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+    >
+      <path d="M5 19L19 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M5 5H19V19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </motion.svg>
+  </button> 
+  </div>
 
 
-        </div>
+
+
         {address ? (
           <TransactionWrapper address={address} />
         ) : (
