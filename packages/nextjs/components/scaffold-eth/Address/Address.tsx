@@ -8,6 +8,8 @@ import { useEnsAvatar, useEnsName } from "wagmi";
 import { BlockieAvatar } from "~~/components/scaffold-eth";
 import { useTargetNetwork } from "~~/hooks/scaffold-eth/useTargetNetwork";
 import { getBlockExplorerAddressLink } from "~~/utils/scaffold-eth";
+import { Avatar, Identity, Name } from '@coinbase/onchainkit/identity';
+import { base } from 'viem/chains';
 
 const textSizeMap = {
   "3xs": "text-[10px]",
@@ -145,11 +147,8 @@ export const Address = ({
   return (
     <div className="flex items-center flex-shrink-0">
       <div className="flex-shrink-0">
-        <BlockieAvatar
-          address={checkSumAddress}
-          ensImage={ensAvatar}
-          size={(blockieSizeMap[blockieSize] * 24) / blockieSizeMap["base"]}
-        />
+      <Avatar address={address} chain={base} />
+       <Name address={address} chain={base} />
       </div>
       <div className="flex flex-col">
         {showSkeleton &&

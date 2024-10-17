@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useAccount } from "wagmi";
-import { Address, AddressInput } from "~~/components/scaffold-eth";
+import { Address, AddressInput, EnhancedAddress } from "~~/components/scaffold-eth";
 import { useScaffoldReadContract, useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 import { notification } from "~~/utils/scaffold-eth";
+
 
 const Home = () => {
   const { address: connectedAddress } = useAccount();
@@ -115,14 +116,15 @@ const Home = () => {
 
   return (
     <div className="flex h-full w-full max-w-full flex-col items-center px-4 md:px-8">
-      <header className="w-full max-w-4xl mt-6 mb-6 flex items-center justify-between">
+      <header className="w-full max-w-4xl mt-6 mb-6 flex items-center justify-center">
+
         <div className="flex items-center gap-3">
           <Address address={connectedAddress} />
         </div>
+        
       </header>
 
       <main className="w-full max-w-md flex flex-col items-center justify-center gap-6 rounded-xl bg-gray-100 px-4 py-8">
-
         <div className="w-full bg-blue-600 text-white rounded-2xl p-5">
           <div className="text-xs mb-1">Balance</div>
           <div className="text-4xl font-bold">WIN {balance?.toString() || "0.00"}</div>
