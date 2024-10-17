@@ -7,7 +7,6 @@ import { useAccount } from "wagmi";
 import { Address, AddressInput } from "~~/components/scaffold-eth";
 import { useScaffoldReadContract, useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 import { notification } from "~~/utils/scaffold-eth";
-import { Basenames } from '../components/Basenames';
 
 const Home = () => {
   const { address: connectedAddress } = useAccount();
@@ -116,34 +115,23 @@ const Home = () => {
   };
 
   return (
-    <>
-      <div className="flex items-center flex-col flex-grow pt-10">
-        <div className="px-5">
-          <h1 className="text-center">
-            <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">Scaffold-ETH 2</span>
-          </h1>
-          <div className="flex justify-center items-center space-x-2 flex-col sm:flex-row">
-            <p className="my-2 font-medium">Connected Address:</p>
-            <Address address={connectedAddress} />
-          </div>
+    <div className="flex h-full w-full max-w-full flex-col items-center px-4 md:px-8">
+      <header className="w-full max-w-4xl mt-6 mb-6 flex items-center justify-between">
+        <div className="flex items-center space-x-2">
+          <Image src="/wingz.png" alt="wingz" width={50} height={50} />
+          <span className="text-4xl text-blue-600 font-bold">WINGZ</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <Address address={connectedAddress} />
+        </div>
+      </header>
 
-          <p className="text-center text-lg">
-            Get started by editing{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              packages/nextjs/app/page.tsx
-            </code>
-          </p>
-          <p className="text-center text-lg">
-            Edit your smart contract{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              YourContract.sol
-            </code>{" "}
-            in{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              packages/hardhat/contracts
-            </code>
-          </p>
+      <main className="w-full max-w-md flex flex-col items-center justify-center gap-6 rounded-xl bg-gray-100 px-4 py-8">
+
+
+        <div className="w-full bg-blue-600 text-white rounded-2xl p-5">
+          <div className="text-xs mb-1">Saldo de cuentas</div>
+          <div className="text-4xl font-bold">WIN {balance?.toString() || "0.00"}</div>
         </div>
 
         <button
