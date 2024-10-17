@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useAccount } from "wagmi";
 import { Address, AddressInput } from "~~/components/scaffold-eth";
@@ -117,10 +116,6 @@ const Home = () => {
   return (
     <div className="flex h-full w-full max-w-full flex-col items-center px-4 md:px-8">
       <header className="w-full max-w-4xl mt-6 mb-6 flex items-center justify-between">
-        <div className="flex items-center space-x-2">
-          <Image src="/wingz.png" alt="wingz" width={50} height={50} />
-          <span className="text-4xl text-blue-600 font-bold">WINGZ</span>
-        </div>
         <div className="flex items-center gap-3">
           <Address address={connectedAddress} />
         </div>
@@ -128,9 +123,8 @@ const Home = () => {
 
       <main className="w-full max-w-md flex flex-col items-center justify-center gap-6 rounded-xl bg-gray-100 px-4 py-8">
 
-
         <div className="w-full bg-blue-600 text-white rounded-2xl p-5">
-          <div className="text-xs mb-1">Saldo de cuentas</div>
+          <div className="text-xs mb-1">Balance</div>
           <div className="text-4xl font-bold">WIN {balance?.toString() || "0.00"}</div>
         </div>
 
@@ -140,7 +134,7 @@ const Home = () => {
           onMouseEnter={() => setIsClimbHovered(true)}
           onMouseLeave={() => setIsClimbHovered(false)}
         >
-          <span className="text-3xl font-bold">CLIMB</span>
+          <span className="text-3xl font-bold">CLAIM</span>
           <svg
             width="64"
             height="64"
