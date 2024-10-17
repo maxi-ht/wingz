@@ -11,6 +11,7 @@
     "account": "yarn workspace @se-2/hardhat account",
     "chain": "yarn workspace @se-2/hardhat chain",
     "compile": "yarn workspace @se-2/hardhat compile",
+    "dev": "next dev",
     "deploy": "yarn workspace @se-2/hardhat deploy",
     "flatten": "yarn workspace @se-2/hardhat flatten",
     "fork": "yarn workspace @se-2/hardhat fork",
@@ -22,6 +23,7 @@
     "hardhat:lint-staged": "yarn workspace @se-2/hardhat lint-staged",
     "hardhat:test": "yarn workspace @se-2/hardhat test",
     "postinstall": "husky install",
+    "lint": "next lint",
     "next:build": "yarn workspace @se-2/nextjs build",
     "next:check-types": "yarn workspace @se-2/nextjs check-types",
     "next:format": "yarn workspace @se-2/nextjs format",
@@ -35,11 +37,21 @@
     "verify": "yarn workspace @se-2/hardhat verify"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.9.0",
+    "eslint": "^9.12.0",
+    "eslint-config-next": "^14.2.15",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "husky": "~8.0.3",
-    "lint-staged": "~13.2.2"
+    "lint-staged": "~13.2.2",
+    "prettier": "^3.3.3"
   },
   "packageManager": "yarn@3.2.3",
   "engines": {
     "node": ">=18.18.0"
+  },
+  "dependencies": {
+    "ethers": "^6.13.4",
+    "next": "^14.2.15"
   }
 }

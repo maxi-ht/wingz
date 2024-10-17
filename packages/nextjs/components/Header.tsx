@@ -8,6 +8,8 @@ import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
 import { RectangleGroupIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
+import { BlackCreateWalletButton } from "../components/scaffold-eth/BlackCreateWalletButton";
+
 
 type HeaderMenuLink = {
   label: string;
@@ -108,6 +110,7 @@ export const Header = () => {
         </ul>
       </div>
       <div className="navbar-end flex-grow mr-4">
+        <BlackCreateWalletButton height={5} width={100} />
         <RainbowKitCustomConnectButton />
         <FaucetButton />
       </div>
