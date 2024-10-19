@@ -22,6 +22,8 @@ export const RPC_CHAIN_NAMES: Record<number, string> = {
   [chains.arbitrum.id]: "arb-mainnet",
   [chains.arbitrumGoerli.id]: "arb-goerli",
   [chains.arbitrumSepolia.id]: "arb-sepolia",
+  [chains.avalanche.id]: "avalanche-mainnet",
+  [chains.avalancheFuji.id]: "avalanche-Fuji",
   [chains.polygon.id]: "polygon-mainnet",
   [chains.polygonMumbai.id]: "polygon-mumbai",
   [chains.polygonAmoy.id]: "polygon-amoy",

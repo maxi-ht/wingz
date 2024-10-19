@@ -1,20 +1,26 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { useConnect } from 'wagmi';
+import { useConnect, useAccount } from 'wagmi';
 import { CoinbaseWalletLogo } from './RainbowKitCustomConnectButton/CoinbaseWalletLogo';
 
-
 const GRADIENT_BORDER_WIDTH = 2;
- 
+
 const buttonStyles = {
   background: 'transparent',
   border: '1px solid transparent',
   boxSizing: 'border-box',
 };
- 
+
 const contentWrapperStyle = {
   position: 'relative',
 };
- 
+
+// Hook para determinar si está en modo claro o oscuro
+const useTheme = () => {
+  const [isLightMode, setIsLightMode] = useState(false); // Cambia a true para el modo claro
+  // Aquí puedes agregar lógica para cambiar entre modos, por ejemplo, basado en un botón o un evento.
+  return { isLightMode, setIsLightMode };
+};
+
 function Gradient({ children, style, isAnimationDisabled = false }) {
   const [isAnimating, setIsAnimating] = useState(false);
   const gradientStyle = useMemo(() => {
@@ -27,12 +33,12 @@ function Gradient({ children, style, isAnimationDisabled = false }) {
       ...style,
     };
   }, [isAnimating, style]);
- 
+
   const handleMouseEnter = useCallback(() => {
     if (isAnimationDisabled || isAnimating) return;
     setIsAnimating(true);
   }, [isAnimationDisabled, isAnimating, setIsAnimating]);
- 
+
   useEffect(() => {
     if (!isAnimating) return;
     const animationTimeout = setTimeout(() => {
@@ -42,7 +48,7 @@ function Gradient({ children, style, isAnimationDisabled = false }) {
       clearTimeout(animationTimeout);
     };
   }, [isAnimating]);
- 
+
   return (
     <div style={contentWrapperStyle} onMouseEnter={handleMouseEnter}>
       <div className="gradient-background" style={gradientStyle} />
@@ -50,22 +56,25 @@ function Gradient({ children, style, isAnimationDisabled = false }) {
     </div>
   );
 }
- 
-export function BlackCreateWalletButton({ height = 66, width = 200 }) {
+
+export function BlackCreateWalletButton({ height = 35, width = 140 }) {
   const { connectors, connect } = useConnect();
- 
-  const minButtonHeight = 48;
-  const minButtonWidth = 200;
+  const { isConnected } = useAccount(); // hook para saber si está conectado
+  const { isLightMode } = useTheme(); // Obtener el modo del tema
+
+  const minButtonHeight = 35;
+  const minButtonWidth = 140;
   const buttonHeight = Math.max(minButtonHeight, height);
   const buttonWidth = Math.max(minButtonWidth, width);
   const gradientDiameter = Math.max(buttonHeight, buttonWidth);
-  const styles = useMemo(
-    () => ({
+
+  const styles = useMemo(() => {
+    return {
       gradientContainer: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'black',
+        backgroundColor: isLightMode ? '#FFFFFF' : '#000000', // Fondo blanco en modo claro
         borderRadius: buttonHeight / 2,
         height: buttonHeight,
         width: buttonWidth,
@@ -73,8 +82,9 @@ export function BlackCreateWalletButton({ height = 66, width = 200 }) {
         overflow: 'hidden',
       },
       gradient: {
-        background:
-          'conic-gradient(from 180deg, #45E1E5 0deg, #0052FF 86.4deg, #B82EA4 165.6deg, #FF9533 255.6deg, #7FD057 320.4deg, #45E1E5 360deg)',
+        background: isLightMode
+          ? 'conic-gradient(from 180deg, #0052FF 0deg, #45E1E5 86.4deg, #FF9533 165.6deg, #7FD057 255.6deg, #B82EA4 320.4deg, #0052FF 360deg)' // Gradiente para modo claro
+          : 'conic-gradient(from 180deg, #45E1E5 0deg, #0052FF 86.4deg, #B82EA4 165.6deg, #FF9533 255.6deg, #7FD057 320.4deg, #45E1E5 360deg)', // Gradiente original para modo oscuro
         position: 'absolute',
         top: -buttonHeight - GRADIENT_BORDER_WIDTH,
         left: -GRADIENT_BORDER_WIDTH,
@@ -86,20 +96,20 @@ export function BlackCreateWalletButton({ height = 66, width = 200 }) {
         justifyContent: 'center',
         alignItems: 'center',
         boxSizing: 'border-box',
-        backgroundColor: '#000000',
+        backgroundColor: isLightMode ? '#FFFFFF' : '#000000', // Fondo blanco en modo claro
         height: buttonHeight - GRADIENT_BORDER_WIDTH * 2,
         width: buttonWidth - GRADIENT_BORDER_WIDTH * 2,
         fontFamily: 'Arial, sans-serif',
-        fontWeight: 'bold',
-        fontSize: 18,
+        fontWeight: 'normal',
+        fontSize: 14,
         borderRadius: buttonHeight / 2,
         position: 'relative',
         paddingRight: 10,
+        color: isLightMode ? '#000000' : '#FFFFFF', // Texto negro en modo claro
       },
-    }),
-    [buttonHeight, buttonWidth, gradientDiameter]
-  );
- 
+    };
+  }, [buttonHeight, buttonWidth, gradientDiameter, isLightMode]);
+
   const createWallet = useCallback(() => {
     const coinbaseWalletConnector = connectors.find(
       (connector) => connector.id === 'coinbaseWalletSDK'
@@ -108,7 +118,12 @@ export function BlackCreateWalletButton({ height = 66, width = 200 }) {
       connect({ connector: coinbaseWalletConnector });
     }
   }, [connectors, connect]);
- 
+
+  // Si está conectado, no se renderiza el botón
+  if (isConnected) {
+    return null;
+  }
+
   return (
     <button style={buttonStyles} onClick={createWallet}>
       <div style={styles.gradientContainer}>
@@ -121,7 +136,4 @@ export function BlackCreateWalletButton({ height = 66, width = 200 }) {
       </div>
     </button>
   );
-
 }
-
-

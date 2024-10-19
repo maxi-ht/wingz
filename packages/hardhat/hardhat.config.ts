@@ -63,7 +63,7 @@ const config: HardhatUserConfig = {
     },
     arbitrumSepolia: {
       url: `https://sepolia-rollup.arbitrum.io/rpc`,
-      accounts: [deployerPrivateKey],
+      accounts: [deployerPrivateKey],   
     },
     optimism: {
       url: `https://mainnet.optimism.io`,

@@ -147,8 +147,6 @@ export const Address = ({
   return (
     <div className="flex items-center flex-shrink-0">
       <div className="flex-shrink-0">
-      <Avatar address={address} chain={base} />
-       <Name address={address} chain={base} />
       </div>
       <div className="flex flex-col">
         {showSkeleton &&

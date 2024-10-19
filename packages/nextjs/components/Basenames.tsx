@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Avatar, Identity, Name, Address } from '@coinbase/onchainkit/identity';
-import { base, baseSepolia } from 'viem/chains';
+import { base } from 'viem/chains';
 
 interface DisplayBasenameProps {
   address: `0x${string}` | undefined;
