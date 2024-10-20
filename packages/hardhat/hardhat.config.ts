@@ -49,6 +49,10 @@ const config: HardhatUserConfig = {
         enabled: process.env.MAINNET_FORKING_ENABLED === "true",
       },
     },
+    avalancheFuji: {
+      url: 'https://ava-testnet.public.blastapi.io/ext/bc/C/rpc',
+      accounts: [deployerPrivateKey]
+    },
     mainnet: {
       url: `https://cloudflare-eth.com`,
       accounts: [deployerPrivateKey],

@@ -3,14 +3,14 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useAccount } from "wagmi";
-import { Address, AddressInput, EnhancedAddress } from "~~/components/scaffold-eth";
+import { Address, AddressInput } from "~~/components/scaffold-eth";
 import { useScaffoldReadContract, useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 import { notification } from "~~/utils/scaffold-eth";
-
+import Link from 'next/link';
 
 const Home = () => {
   const { address: connectedAddress } = useAccount();
-  const { writeContractAsync } = useScaffoldWriteContract("Wingz");
+  const { writeAsync } = useScaffoldWriteContract("Wingz");
   const [isClimbHovered, setIsClimbHovered] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
   const [showTransferInputs, setShowTransferInputs] = useState(false);
@@ -40,11 +40,9 @@ const Home = () => {
       notification.error("Please connect your wallet!");
       return;
     }
-
-    const contractResponse = await writeContractAsync({
-      functionName: "claim",
-      args: [connectedAddress],
-    });
+    console.log("before")
+    const contractResponse = await writeAsync("claim",  [connectedAddress]);
+    console.log("After: ", contractResponse)
 
     if (contractResponse) {
       notification.success("Claimed successfully!");
@@ -86,16 +84,13 @@ const Home = () => {
       return;
     }
 
-    if (!amount || isNaN(amount) || parseFloat(amount) <= 0) {
+    if (!amount || isNaN(parseInt(amount)) || parseFloat(amount) <= 0) {
       notification.error("Please enter a valid amount!");
       return;
     }
 
     try {
-      const contractResponse = await writeContractAsync({
-        functionName: "safeTransfer",
-        args: [recipientAddress, amount],
-      });
+      const contractResponse = await writeAsync("safeTransfer", [recipientAddress, amount]);
 
       if (contractResponse) {
         notification.success("Transfer successful!");
@@ -125,6 +120,7 @@ const Home = () => {
       </header>
 
       <main className="w-full max-w-md flex flex-col items-center justify-center gap-6 rounded-xl bg-gray-100 px-4 py-8">
+        
         <div className="w-full bg-blue-600 text-white rounded-2xl p-5">
           <div className="text-xs mb-1">Balance</div>
           <div className="text-4xl font-bold">WIN {balance?.toString() || "0.00"}</div>
@@ -247,6 +243,24 @@ const Home = () => {
             </div>
           )}
         </div>
+
+        <a
+          href="/ictt"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h2 className="mb-3 text-2xl font-semibold">
+            BuilderKit ICTT Flow{" "}
+            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              -&gt;
+            </span>
+          </h2>
+          <p className="m-0 max-w-[30ch] text-sm opacity-50">
+            Build your own ICTT frontend
+          </p>
+        </a>
+
       </main>
     </div>
   );

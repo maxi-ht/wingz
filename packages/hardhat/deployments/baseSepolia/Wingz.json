@@ -1,0 +1,212 @@
+{
+  "address": "0x6A1599262A6c519331978d17700adCE71c930276",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "balances",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "claim",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "hasClaimed",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "safeTransfer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalClaimed",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalSupply",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x2ae368824878badbd6944df54ced238d120adc76d30e88db4ab494ac9159a2fc",
+  "receipt": {
+    "to": null,
+    "from": "0x9cfB5a45EFD0df0dFA46f26D6888fD5DE4301787",
+    "contractAddress": "0x6A1599262A6c519331978d17700adCE71c930276",
+    "transactionIndex": 6,
+    "gasUsed": "450091",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x5692e359c16b6b618e95cb66fab86d62f441a08bcd0678f2ad2d912bc3655043",
+    "transactionHash": "0x2ae368824878badbd6944df54ced238d120adc76d30e88db4ab494ac9159a2fc",
+    "logs": [],
+    "blockNumber": 16814374,
+    "cumulativeGasUsed": "899756",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "fd877d9ac08d9fee2f182e61c8251ba4",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.26+commit.8a97fa7a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"balances\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"claim\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"hasClaimed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"safeTransfer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalClaimed\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/wingz.sol\":\"Wingz\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/wingz.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.26;\\n\\n\\ncontract Wingz {\\n    mapping (address => uint) public balances;\\n    mapping(address => bool) public hasClaimed;\\n    uint public totalSupply;\\n    uint public totalClaimed;\\n    uint256 _claimed = 1000;\\n\\n    constructor() {\\n        totalSupply = 100000000;\\n        balances[msg.sender] = totalSupply;\\n        totalClaimed = 0;\\n    }   \\n\\n    function claim (address) public {\\n        require(totalClaimed < totalSupply, \\\"AllTokensClaimed\\\");\\n        balances[msg.sender] += _claimed;\\n        totalClaimed += _claimed;\\n        hasClaimed[msg.sender] = true;\\n    }\\n\\n// This is SafeTransfer\\n\\n    function addressToString(address _addr) internal pure returns (string memory) {\\n        bytes memory s = new bytes(42);\\n        s[0] = '0';\\n        s[1] = 'x';\\n        for (uint i = 0; i < 20; i++) {\\n            uint8 b = uint8(uint160(_addr) >> (i * 8));\\n            s[2 + i * 2] = bytes1(uint8(b >> 4));\\n            s[3 + i * 2] = bytes1(uint8(b & 0x0f));\\n        }\\n        return string(abi.encodePacked(s));\\n    }\\n\\n    function safeTransfer (address _to, uint _amount) public {\\n        require(_to != address(0), string(abi.encodePacked(\\\"UnsafeTransfer: \\\", addressToString(_to))));\\n         if (block.chainid == 84531) {\\n            require(balances[_to] > 0, string(abi.encodePacked(\\\"UnsafeTransfer: \\\", addressToString(_to))));\\n        }\\n        balances[msg.sender] -= _amount;\\n        balances[_to] += _amount;\\n    }\\n}\",\"keccak256\":\"0x5e5133ffdf0695c75d899a958f3a5c0bea669bf389b0cd7200f56884ce1e0c97\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60806040526103e8600455348015601557600080fd5b506305f5e1006002819055336000908152602081905260408120919091556003556105ed806100456000396000f3fe608060405234801561001057600080fd5b50600436106100625760003560e01c806318160ddd146100675780631e83409a1461008357806327e235e314610098578063423f6cef146100b857806373b2e80e146100cb578063d54ad2a1146100fe575b600080fd5b61007060025481565b6040519081526020015b60405180910390f35b610096610091366004610451565b610107565b005b6100706100a6366004610451565b60006020819052908152604090205481565b6100966100c6366004610473565b6101b3565b6100ee6100d9366004610451565b60016020526000908152604090205460ff1681565b604051901515815260200161007a565b61007060035481565b600254600354106101525760405162461bcd60e51b815260206004820152601060248201526f105b1b151bdad95b9cd0db185a5b595960821b60448201526064015b60405180910390fd5b60045433600090815260208190526040812080549091906101749084906104b3565b90915550506004546003805460009061018e9084906104b3565b9091555050336000908152600160208190526040909120805460ff1916909117905550565b6001600160a01b03821615156101c8836102c8565b6040516020016101d891906104f0565b604051602081830303815290604052906102055760405162461bcd60e51b81526004016101499190610528565b504662014a3303610273576001600160a01b0382166000908152602081905260409020541515610234836102c8565b60405160200161024491906104f0565b604051602081830303815290604052906102715760405162461bcd60e51b81526004016101499190610528565b505b336000908152602081905260408120805483929061029290849061055b565b90915550506001600160a01b038216600090815260208190526040812080548392906102bf9084906104b3565b90915550505050565b60408051602a808252606082810190935260009190602082018180368337019050509050600360fc1b816000815181106103045761030461056e565b60200101906001600160f81b031916908160001a905350600f60fb1b816001815181106103335761033361056e565b60200101906001600160f81b031916908160001a90535060005b601481101561040c576000610363826008610584565b6001600160a01b038616901c9050600f60f81b60f482901b1683610388846002610584565b6103939060026104b3565b815181106103a3576103a361056e565b60200101906001600160f81b031916908160001a905350600f60f81b60f882901b16836103d1846002610584565b6103dc9060036104b3565b815181106103ec576103ec61056e565b60200101906001600160f81b031916908160001a9053505060010161034d565b508060405160200161041e919061059b565b604051602081830303815290604052915050919050565b80356001600160a01b038116811461044c57600080fd5b919050565b60006020828403121561046357600080fd5b61046c82610435565b9392505050565b6000806040838503121561048657600080fd5b61048f83610435565b946020939093013593505050565b634e487b7160e01b600052601160045260246000fd5b808201808211156104c6576104c661049d565b92915050565b60005b838110156104e75781810151838201526020016104cf565b50506000910152565b6f02ab739b0b332aa3930b739b332b91d160851b81526000825161051b8160108501602087016104cc565b9190910160100192915050565b60208152600082518060208401526105478160408501602087016104cc565b601f01601f19169190910160400192915050565b818103818111156104c6576104c661049d565b634e487b7160e01b600052603260045260246000fd5b80820281158282048414176104c6576104c661049d565b600082516105ad8184602087016104cc565b919091019291505056fea2646970667358221220e7c1b3da1a9e05883ab8781c7638eb878519aaef49932bd9d2adb8dd041bcab264736f6c634300081a0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100625760003560e01c806318160ddd146100675780631e83409a1461008357806327e235e314610098578063423f6cef146100b857806373b2e80e146100cb578063d54ad2a1146100fe575b600080fd5b61007060025481565b6040519081526020015b60405180910390f35b610096610091366004610451565b610107565b005b6100706100a6366004610451565b60006020819052908152604090205481565b6100966100c6366004610473565b6101b3565b6100ee6100d9366004610451565b60016020526000908152604090205460ff1681565b604051901515815260200161007a565b61007060035481565b600254600354106101525760405162461bcd60e51b815260206004820152601060248201526f105b1b151bdad95b9cd0db185a5b595960821b60448201526064015b60405180910390fd5b60045433600090815260208190526040812080549091906101749084906104b3565b90915550506004546003805460009061018e9084906104b3565b9091555050336000908152600160208190526040909120805460ff1916909117905550565b6001600160a01b03821615156101c8836102c8565b6040516020016101d891906104f0565b604051602081830303815290604052906102055760405162461bcd60e51b81526004016101499190610528565b504662014a3303610273576001600160a01b0382166000908152602081905260409020541515610234836102c8565b60405160200161024491906104f0565b604051602081830303815290604052906102715760405162461bcd60e51b81526004016101499190610528565b505b336000908152602081905260408120805483929061029290849061055b565b90915550506001600160a01b038216600090815260208190526040812080548392906102bf9084906104b3565b90915550505050565b60408051602a808252606082810190935260009190602082018180368337019050509050600360fc1b816000815181106103045761030461056e565b60200101906001600160f81b031916908160001a905350600f60fb1b816001815181106103335761033361056e565b60200101906001600160f81b031916908160001a90535060005b601481101561040c576000610363826008610584565b6001600160a01b038616901c9050600f60f81b60f482901b1683610388846002610584565b6103939060026104b3565b815181106103a3576103a361056e565b60200101906001600160f81b031916908160001a905350600f60f81b60f882901b16836103d1846002610584565b6103dc9060036104b3565b815181106103ec576103ec61056e565b60200101906001600160f81b031916908160001a9053505060010161034d565b508060405160200161041e919061059b565b604051602081830303815290604052915050919050565b80356001600160a01b038116811461044c57600080fd5b919050565b60006020828403121561046357600080fd5b61046c82610435565b9392505050565b6000806040838503121561048657600080fd5b61048f83610435565b946020939093013593505050565b634e487b7160e01b600052601160045260246000fd5b808201808211156104c6576104c661049d565b92915050565b60005b838110156104e75781810151838201526020016104cf565b50506000910152565b6f02ab739b0b332aa3930b739b332b91d160851b81526000825161051b8160108501602087016104cc565b9190910160100192915050565b60208152600082518060208401526105478160408501602087016104cc565b601f01601f19169190910160400192915050565b818103818111156104c6576104c661049d565b634e487b7160e01b600052603260045260246000fd5b80820281158282048414176104c6576104c661049d565b600082516105ad8184602087016104cc565b919091019291505056fea2646970667358221220e7c1b3da1a9e05883ab8781c7638eb878519aaef49932bd9d2adb8dd041bcab264736f6c634300081a0033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 145,
+        "contract": "contracts/wingz.sol:Wingz",
+        "label": "balances",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_address,t_uint256)"
+      },
+      {
+        "astId": 149,
+        "contract": "contracts/wingz.sol:Wingz",
+        "label": "hasClaimed",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_address,t_bool)"
+      },
+      {
+        "astId": 151,
+        "contract": "contracts/wingz.sol:Wingz",
+        "label": "totalSupply",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 153,
+        "contract": "contracts/wingz.sol:Wingz",
+        "label": "totalClaimed",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 156,
+        "contract": "contracts/wingz.sol:Wingz",
+        "label": "_claimed",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_uint256"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
