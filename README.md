@@ -1,80 +1,80 @@
-# 🏗 Scaffold-ETH 2
+# 🛫 WINGZ
 
 <h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Documentation</a> |
-  <a href="https://scaffoldeth.io">Website</a>
+  Buy Air Tickets with Your Wallet
 </h4>
 
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+🌎 WINGZ is an open-source platform designed to revolutionize air travel access through web3 technology in Latin America. It offers users greater accessibility and flexibility while serving as a reserve of value with liquidity.
 
-⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, Viem, and Typescript.
+💡 Built using blockchain technology, smart contracts, and a user-friendly interface.
 
-- ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
-- 🪝 **[Custom hooks](https://docs.scaffoldeth.io/hooks/)**: Collection of React hooks wrapper around [wagmi](https://wagmi.sh/) to simplify interactions with smart contracts with typescript autocompletion.
-- 🧱 [**Components**](https://docs.scaffoldeth.io/components/): Collection of common web3 components to quickly build your frontend.
-- 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
-- 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
+- ✅ **Flexible Purchasing**: Buy, burn, sell, or transfer WINGZ tokens for air travel.
+- 🪙 **Utility Token**: WINGZ (WIN) represents certain value  per token.
+- 🎫 **NFT Ticketing**: Receive an immutable NFT with travel data upon burning tokens.
+- 🌟 **Additional Benefits**: Use WINGZ for airport services, in-flight purchases, and more.
 
-![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/b237af0c-5027-4849-a5c1-2e31495cccb1)
-
-## Requirements
-
-Before you begin, you need to install the following tools:
-
-- [Node (>= v18.18)](https://nodejs.org/en/download/)
-- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
-- [Git](https://git-scm.com/downloads)
 
 ## Quickstart
 
-To get started with Scaffold-ETH 2, follow the steps below:
+To get started with WINGZ, follow the steps below:
 
-1. Install dependencies if it was skipped in CLI:
+1. Clone the repository and install dependencies:
 
-```
-cd my-dapp-example
+```bash
+git clone https://github.com/maxi-ht/wingz.git
+cd wingz
 yarn install
 ```
-
-2. Run a local network in the first terminal:
-
+2. Change to the correct branch:
+```bash
+git checkout wingz.for.avalanche
 ```
+
+3. Set up the local blockchain network:
+
+```bash
 yarn chain
 ```
 
-This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in `packages/hardhat/hardhat.config.ts`.
+This command starts a local blockchain network for development and testing. You can customize the network configuration in `packages/hardhat/hardhat.config.ts`.
 
-3. On a second terminal, deploy the test contract:
+4. Deploy the WINGZ smart contract:
 
-```
+```bash
 yarn deploy
 ```
 
-This command deploys a test smart contract to the local network. The contract is located in `packages/hardhat/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/hardhat/deploy` to deploy the contract to the network. You can also customize the deploy script.
+This command deploys the WINGZ smart contract to the local network. The contract is located in `packages/hardhat/contracts/WINGZ.sol` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script in `packages/hardhat/deploy` to deploy the contract.
 
-4. On a third terminal, start your NextJS app:
+5. Start the frontend application:
 
-```
+```bash
 yarn start
 ```
 
-Visit your app on: `http://localhost:3000`. You can interact with your smart contract using the `Debug Contracts` page. You can tweak the app config in `packages/nextjs/scaffold.config.ts`.
-
-Run smart contract test with `yarn hardhat:test`
-
-- Edit your smart contract `YourContract.sol` in `packages/hardhat/contracts`
-- Edit your frontend homepage at `packages/nextjs/app/page.tsx`. For guidance on [routing](https://nextjs.org/docs/app/building-your-application/routing/defining-routes) and configuring [pages/layouts](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts) checkout the Next.js documentation.
-- Edit your deployment scripts in `packages/hardhat/deploy`
+Visit your app on: `http://localhost:3000`. You can configure the app settings in `packages/nextjs/scaffold.config.ts`.
 
 
-## Documentation
 
-Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-ETH 2.
+## Why WINGZ?
 
-To know more about its features, check out our [website](https://scaffoldeth.io).
+WINGZ addresses the growing needs of digital nomads and remote workers in Latin America:
 
-## Contributing to Scaffold-ETH 2
+- 🌴 Mexico and Argentina are top destinations for digital nomads
+- 💼 Remote work is on the rise, especially in tech and customer service sectors
+- 🔓 Traditional airlines and flyer programs often lack flexibility
 
-We welcome contributions to Scaffold-ETH 2!
+## Features
 
-Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
+- **Token Purchase**: Buy WINGZ tokens representing flight value
+- **Flexible Usage**: Burn tokens for flights or hold/transfer/sell them
+- **NFT Ticketing**: Receive unique NFTs for booked flights
+- **Additional Services**: Use WINGZ for various travel-related purchases
+
+## Target Audience
+
+The WINGZ buyer persona is a tech-savvy, blockchain enthusiast, often a digital nomad or remote worker, who values:
+
+- Flexibility in travel planning
+- Financial autonomy
+- Accessible and liquid travel rewards

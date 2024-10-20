@@ -1,7 +1,5 @@
 import React from "react";
-import Link from "next/link";
-import { base, baseSepolia, hardhat, avalanche, avalancheFuji } from "viem/chains";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { hardhat } from "viem/chains";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { SwitchTheme } from "~~/components/SwitchTheme";
 import { BuidlGuidlLogo } from "~~/components/assets/BuidlGuidlLogo";

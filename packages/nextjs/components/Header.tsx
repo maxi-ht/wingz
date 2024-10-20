@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 import { Bars3Icon, CloudArrowUpIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
-import { BlackCreateWalletButton } from "../components/scaffold-eth/BlackCreateWalletButton";
 import Image from "next/image";
 
 
@@ -106,7 +105,6 @@ export const Header = () => {
         </ul>
       </div>
       <div className="navbar-end flex-grow mr-4">
-        <BlackCreateWalletButton height={5} width={100} />
         <RainbowKitCustomConnectButton />
         <FaucetButton />
       </div>
