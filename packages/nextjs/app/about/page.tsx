@@ -1,7 +1,13 @@
 import React from 'react';
 import { Plane, Wallet, DollarSign, Ticket, Star } from 'lucide-react';
 
-const FeatureCard = ({ icon, title, description }) => (
+interface FeatureCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) => (
   <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
     <div className="flex items-center mb-4">
       {icon}
@@ -11,7 +17,12 @@ const FeatureCard = ({ icon, title, description }) => (
   </div>
 );
 
-const WhyWingzCard = ({ emoji, text }) => (
+interface WhyWingzCardProps {
+  emoji: string;
+  text: string;
+}
+
+const WhyWingzCard: React.FC<WhyWingzCardProps> = ({ emoji, text }) => (
   <div className="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg flex items-center">
     <span className="text-2xl mr-2">{emoji}</span>
     <p className="text-gray-800 dark:text-gray-200">{text}</p>
