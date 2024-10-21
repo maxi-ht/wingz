@@ -14,45 +14,10 @@
 - 🌟 **Additional Benefits**: Use WINGZ for airport services, in-flight purchases, and more.
 
 
-## Quickstart
 
-To get started with WINGZ, follow the steps below:
 
-1. Clone the repository and install dependencies:
 
-```bash
-git clone https://github.com/maxi-ht/wingz.git
-cd wingz
-yarn install
-```
-2. Change to the correct branch:
-```bash
-git checkout wingz.for.avalanche
-```
-
-3. Set up the local blockchain network:
-
-```bash
-yarn chain
-```
-
-This command starts a local blockchain network for development and testing. You can customize the network configuration in `packages/hardhat/hardhat.config.ts`.
-
-4. Deploy the WINGZ smart contract:
-
-```bash
-yarn deploy
-```
-
-This command deploys the WINGZ smart contract to the local network. The contract is located in `packages/hardhat/contracts/WINGZ.sol` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script in `packages/hardhat/deploy` to deploy the contract.
-
-5. Start the frontend application:
-
-```bash
-yarn start
-```
-
-Visit your app on: `http://localhost:3000`. You can configure the app settings in `packages/nextjs/scaffold.config.ts`.
+Visit our app on: `http://localhost:3000`.
 
 
 
