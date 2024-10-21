@@ -159,6 +159,7 @@ export const Address = ({
               <AddressLinkWrapper
                 disableAddressLink={disableAddressLink}
                 blockExplorerAddressLink={blockExplorerAddressLink}
+                chain={targetNetwork}
               >
                 {ens}
               </AddressLinkWrapper>
@@ -169,6 +170,7 @@ export const Address = ({
             <AddressLinkWrapper
               disableAddressLink={disableAddressLink}
               blockExplorerAddressLink={blockExplorerAddressLink}
+              chain={targetNetwork}
             >
               {onlyEnsOrAddress ? displayEnsOrAddress : displayAddress}
             </AddressLinkWrapper>

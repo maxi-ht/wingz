@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { Bars3Icon, CloudArrowUpIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
+import { BlackCreateWalletButton } from "../components/scaffold-eth/BlackCreateWalletButton";
 import Image from "next/image";
 
 
@@ -97,7 +98,6 @@ export const Header = () => {
           </div>
           <div className="flex flex-col">
             <span className="font-bold leading-tight">WINGZ</span>
-            <span className="text-xs">for Avalanche Summit LATAM Hackathon</span>
           </div>
         </Link>
         <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2">
@@ -105,6 +105,7 @@ export const Header = () => {
         </ul>
       </div>
       <div className="navbar-end flex-grow mr-4">
+        <BlackCreateWalletButton height={5} width={100} />
         <RainbowKitCustomConnectButton />
         <FaucetButton />
       </div>
