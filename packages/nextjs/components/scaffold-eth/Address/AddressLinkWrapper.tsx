@@ -33,7 +33,7 @@ export const AddressLinkWrapper = ({
     </>
   ) : (
     <Link
-      href={blockExplorerAddressLink}
+      href={blockExplorerAddressLink || "#"}
       target={targetNetwork.id === hardhat.id ? undefined : "_blank"}
       rel={targetNetwork.id === hardhat.id ? undefined : "noopener noreferrer"}
     >
