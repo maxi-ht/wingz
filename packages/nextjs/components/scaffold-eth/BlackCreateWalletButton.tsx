@@ -1,17 +1,18 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+// Removed invalid import for BoxSizing
 import { useConnect, useAccount } from 'wagmi';
 import { CoinbaseWalletLogo } from './RainbowKitCustomConnectButton/CoinbaseWalletLogo';
 
 const GRADIENT_BORDER_WIDTH = 2;
 
-const buttonStyles = {
+const buttonStyles: React.CSSProperties = {
   background: 'transparent',
-  border: '1px solid transparent',
-  boxSizing: 'border-box',
+  // boxSizing: 'border-box' as BoxSizing, // Removed invalid type assertion
+  boxSizing: 'border-box' as 'border-box',
 };
 
-const contentWrapperStyle = {
-  position: 'relative',
+const contentWrapperStyle: React.CSSProperties = {
+  position: 'relative' as 'relative',
 };
 
 // Hook para determinar si está en modo claro o oscuro
@@ -21,7 +22,9 @@ const useTheme = () => {
   return { isLightMode, setIsLightMode };
 };
 
-function Gradient({ children, style, isAnimationDisabled = false }) {
+import { ReactNode, CSSProperties } from 'react';
+
+function Gradient({ children, style, isAnimationDisabled = false }: { children: ReactNode, style: CSSProperties, isAnimationDisabled?: boolean }) {
   const [isAnimating, setIsAnimating] = useState(false);
   const gradientStyle = useMemo(() => {
     const rotate = isAnimating ? '720deg' : '0deg';
@@ -78,14 +81,14 @@ export function BlackCreateWalletButton({ height = 35, width = 140 }) {
         borderRadius: buttonHeight / 2,
         height: buttonHeight,
         width: buttonWidth,
-        boxSizing: 'border-box',
+        boxSizing: 'border-box' as 'border-box',
         overflow: 'hidden',
       },
       gradient: {
         background: isLightMode
           ? 'conic-gradient(from 180deg, #0052FF 0deg, #45E1E5 86.4deg, #FF9533 165.6deg, #7FD057 255.6deg, #B82EA4 320.4deg, #0052FF 360deg)' // Gradiente para modo claro
           : 'conic-gradient(from 180deg, #45E1E5 0deg, #0052FF 86.4deg, #B82EA4 165.6deg, #FF9533 255.6deg, #7FD057 320.4deg, #45E1E5 360deg)', // Gradiente original para modo oscuro
-        position: 'absolute',
+        position: 'absolute' as React.CSSProperties['position'],
         top: -buttonHeight - GRADIENT_BORDER_WIDTH,
         left: -GRADIENT_BORDER_WIDTH,
         width: gradientDiameter,
@@ -95,7 +98,7 @@ export function BlackCreateWalletButton({ height = 35, width = 140 }) {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        boxSizing: 'border-box',
+        boxSizing: 'border-box' as 'border-box',
         backgroundColor: isLightMode ? '#FFFFFF' : '#000000', // Fondo blanco en modo claro
         height: buttonHeight - GRADIENT_BORDER_WIDTH * 2,
         width: buttonWidth - GRADIENT_BORDER_WIDTH * 2,
@@ -103,7 +106,7 @@ export function BlackCreateWalletButton({ height = 35, width = 140 }) {
         fontWeight: 'normal',
         fontSize: 14,
         borderRadius: buttonHeight / 2,
-        position: 'relative',
+        position: 'relative' as React.CSSProperties['position'],
         paddingRight: 10,
         color: isLightMode ? '#000000' : '#FFFFFF', // Texto negro en modo claro
       },
@@ -129,7 +132,7 @@ export function BlackCreateWalletButton({ height = 35, width = 140 }) {
       <div style={styles.gradientContainer}>
         <Gradient style={styles.gradient}>
           <div style={styles.buttonBody}>
-            <CoinbaseWalletLogo containerStyles={{ paddingRight: 10 }} />
+            <CoinbaseWalletLogo />
             Create Wallet
           </div>
         </Gradient>
