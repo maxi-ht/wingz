@@ -29,7 +29,7 @@ export default function WingzAboutPage() {
 
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8 mb-12">
           <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-            🌎 WINGZ is an open-source platform designed to revolutionize air travel access through web3 technology in Latin America. It offers users greater accessibility and flexibility while serving as a reserve of value with liquidity.
+            🌎 WINGZ is an open-source platform designed to revolutionize air travel access through web3 technology in Latin America. It offers users greater accessibility and flexibility while serving as a reserve of value.
           </p>
           <p className="text-lg text-gray-700 dark:text-gray-300">
             💡 Built using blockchain technology, smart contracts, and a user-friendly interface.

@@ -37,14 +37,19 @@
     "verify": "yarn workspace @se-2/hardhat verify"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.9.0",
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.13.0",
+    "@eslint/migrate-config": "^1.3.2",
+    "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@typescript-eslint/parser": "^8.10.0",
     "eslint": "^9.12.0",
     "eslint-config-next": "^14.2.15",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "husky": "~8.0.3",
     "lint-staged": "~13.2.2",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "typescript": "latest"
   },
   "packageManager": "yarn@3.2.3",
   "engines": {
