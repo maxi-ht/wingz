@@ -1,6 +1,6 @@
 
 export const contractABI = [
-    [
+    
         {
             "inputs": [
                 {
@@ -102,7 +102,7 @@ export const contractABI = [
             "type": "function"
         }
     ]
-  ];
+  
 
   
   

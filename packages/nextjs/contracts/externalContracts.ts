@@ -2,8 +2,8 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 import { Abi } from "viem";
 import { contractABI } from "./contractabi";
 
-
-const localContractABI: Abi = contractABI as unknown as Abi; 
+// Ensure contractABI is a flat array of ABI items
+const localContractABI: Abi = contractABI as Abi;
 
 const externalContracts = {
   11155111: {
